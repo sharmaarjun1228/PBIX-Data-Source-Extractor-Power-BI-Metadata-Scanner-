@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PBIX Data Source Extractor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>PBIX Data Source Extractor</h1>
+    <p class="subtitle">
+      Paste the folder path that contains your Power BI (.pbix) files.
+    </p>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="messages">
+          {% for category, message in messages %}
+            <div class="msg {{ category }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+      <label for="folder_path">Folder path</label>
+      <input
+        type="text"
+        id="folder_path"
+        name="folder_path"
+        placeholder="e.g. D:\ARJUN SHARMA\all dashboard\mpjap\Attendence\New Attendence"
+        required
+      />
+
+      <button type="submit">Extract Data Sources</button>
+    </form>
+
+    <div class="info">
+      <p><strong>Note:</strong> The Excel file will be generated inside the same folder you select and automatically downloaded.</p>
+    </div>
+  </div>
+</body>
+</html>
