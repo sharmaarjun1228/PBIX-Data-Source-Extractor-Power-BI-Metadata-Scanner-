@@ -9,7 +9,7 @@
   <div class="container">
     <h1>PBIX Data Source Extractor</h1>
     <p class="subtitle">
-      Paste the folder path that contains your Power BI (.pbix) files.
+      Select a folder that contains your Power BI (.pbix) files to extract all stored procedures, views and tables used.
     </p>
 
     {% with messages = get_flashed_messages(with_categories=true) %}
@@ -22,13 +22,16 @@
       {% endif %}
     {% endwith %}
 
-    <form method="POST">
-      <label for="folder_path">Folder path</label>
+    <form method="POST" enctype="multipart/form-data">
+      <label for="folder_input">Select Folder Containing PBIX Files</label>
+
       <input
-        type="text"
-        id="folder_path"
-        name="folder_path"
-        placeholder="e.g. D:\ARJUN SHARMA\all dashboard\mpjap\Attendence\New Attendence"
+        type="file"
+        id="folder_input"
+        name="pbix_files"
+        webkitdirectory
+        directory
+        multiple
         required
       />
 
@@ -36,16 +39,12 @@
     </form>
 
     <div class="info">
-      <p><strong>Note:</strong> The Excel file will be generated inside the same folder you select and automatically downloaded.</p>
+      <p><strong>Note:</strong> Only <code>.pbix</code> files inside the selected folder will be scanned. An Excel report will be generated and downloaded automatically.</p>
     </div>
 
     <footer class="credit">
-    Made with 💞 by <strong>Arjun Sharma</strong>
+      Made with 💞 by <strong>Arjun Sharma</strong>
     </footer>
-
-
-    
   </div>
 </body>
 </html>
-
