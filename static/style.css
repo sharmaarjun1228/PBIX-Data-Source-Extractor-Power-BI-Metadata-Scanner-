@@ -89,3 +89,15 @@ button:active {
   font-size: 13px;
   color: #6b7280;
 }
+
+.credit {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+}
+.credit strong {
+  color: #111827;
+}
+
+
